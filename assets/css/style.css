@@ -1,0 +1,19 @@
+
+.boton {
+    margin-top: 10px;
+    background: skyblue;
+    color: rgb(255, 217, 15);
+    font-weight: bold;
+    padding: 0.6rem 1.3rem;
+    text-decoration: none;
+    max-width: 980px;
+    margin: 3px;
+}
+
+.boton:hover {
+    margin-top: 10px;
+    background: rgb(255, 217, 15);
+    color: skyblue;
+    padding: 0.6rem 1.3rem;
+    text-decoration: none;
+}
