@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 
-    var characters = ["Bart Simpson", "Mr. Burns", "Moe Zislack", "Barney Gumble", "Otto Mann", "Ned Flanders", "Reverend Lovejoy", "Marge Simpson", "Apu", "Skinner", "Santas Little Helper"];
+    var characters = ["Bart Simpson", "Mr. Burns", "Moe Zislack", "Barney Gumble", "Otto Mann", "Ned Flanders", "Reverend Lovejoy", "Marge Simpson", "Apu", "Skinner"];
 
     function renderButtons() {
         $(".botones").empty();
@@ -31,7 +31,7 @@ $(document).ready(function() {
         var dataChar = $(this).attr("data-char");
 
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        dataChar + "&api_key=dc6zaTOxFJmzC&limit=10";
+        dataChar + "&api_key=dc6zaTOxFJmzC&limit=8";
         console.log(queryURL);
 
         $('.gifsHere').empty();

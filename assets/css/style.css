@@ -17,3 +17,33 @@
     padding: 0.6rem 1.3rem;
     text-decoration: none;
 }
+
+
+.mid-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    
+    grid-template-areas: 
+        'query query . . .'
+        '. . . . .'
+        'gifs gifs gifs gifs .';
+}
+
+
+
+
+
+.gifsHere {
+    grid-area: gifs;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+   
+}
+
+.query {
+   grid-area: query;
+   margin-top:50px;
+   margin-left: 30px;
+}
