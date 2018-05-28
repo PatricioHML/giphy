@@ -8,7 +8,7 @@ $(document).ready(function() {
         for (i in characters) {
 
             var a = $("<button>");
-            a.addClass("boton");
+            a.addClass("boton", characters[i]);
             a.attr("data-char", characters[i]);
             a.text(characters[i]);
             $(".botones").append(a);
@@ -23,12 +23,18 @@ $(document).ready(function() {
         event.preventDefault();
         characters.push(newChar);
         renderButtons();
+    });
+
+    $(".botones").on("click", ".boton", function(event) {
+        
 
         var dataChar = $(this).attr("data-char");
 
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        newChar + "&api_key=dc6zaTOxFJmzC&limit=10";
+        dataChar + "&api_key=dc6zaTOxFJmzC&limit=10";
         console.log(queryURL);
+
+        $('.gifsHere').empty();
 
         $.ajax({
             url: queryURL,
@@ -56,9 +62,9 @@ $(document).ready(function() {
               }
             });
 
-        renderButtons();
 
-    });
+});
+
     renderButtons();
 
 });
