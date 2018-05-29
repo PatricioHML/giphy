@@ -21,12 +21,16 @@
 
 .mid-area {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    
+    background-image: url("http://www.top-ten.tv/wp-content/uploads/2013/03/simpsons-the-simpsons-5000981-1280-960.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 500px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
     grid-template-areas: 
         'query query . . .'
         '. . . . .'
         'gifs gifs gifs gifs .';
+    
 }
 
 

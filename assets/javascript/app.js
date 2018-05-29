@@ -2,21 +2,22 @@ $(document).ready(function() {
 
 
     var characters = ["Bart Simpson", "Mr. Burns", "Moe Zislack", "Barney Gumble", "Otto Mann", "Ned Flanders", "Reverend Lovejoy", "Marge Simpson", "Apu", "Skinner"];
-
+  
     function renderButtons() {
         $(".botones").empty();
         for (i in characters) {
-
+  
             var a = $("<button>");
             a.addClass("boton", characters[i]);
             a.attr("data-char", characters[i]);
             a.text(characters[i]);
+            
             $(".botones").append(a);
-
+  
             
     }
     }
-
+  
     $(".btn").on("click", function(event) {
         newChar = $("#addChar").val().trim();
         console.log(newChar);
@@ -24,18 +25,18 @@ $(document).ready(function() {
         characters.push(newChar);
         renderButtons();
     });
-
+  
     $(".botones").on("click", ".boton", function(event) {
         
-
+  
         var dataChar = $(this).attr("data-char");
-
+  
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         dataChar + "&api_key=dc6zaTOxFJmzC&limit=8";
         console.log(queryURL);
-
+  
         $('.gifsHere').empty();
-
+  
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -54,17 +55,22 @@ $(document).ready(function() {
     
                 var charImage = $("<img>");
                 charImage.attr("src", results[i].images.fixed_height.url);
+                charImage.attr("data-still", results[i].images.original.url);
+                charImage.attr("data-animate", results[i].images.original_still.url);
     
                 gifDiv.append(p);
                 gifDiv.append(charImage);
+
+                
                 
                 $(".gifsHere").prepend(gifDiv);
               }
             });
-
-
-});
-
+          
+                
+  
+  });
+  
     renderButtons();
-
-});
+  
+  });
