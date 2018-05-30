@@ -48,22 +48,25 @@ $(document).ready(function() {
               var results = response.data;
               console.log(results);
               for (i in results) {
+                  console.log(results);
+                var moveChar = response.data[i].images.fixed_height.url;
+                var stillChar = response.data[i].images.fixed_height_still.url;
     
                 var gifDiv= $("<div>");
     
                 var p = $("<p>").text("Rating: " + results[i].rating);
     
                 var charImage = $("<img>");
-                charImage.attr("src", results[i].images.fixed_height.url);
-                charImage.attr("data-still", results[i].images.original.url);
-                charImage.attr("data-animate", results[i].images.original_still.url);
-    
+                charImage.attr("src", stillChar);
+                charImage.attr('data-state', 'still');
+                charImage.attr('data-still', stillChar);
+                charImage.attr('data-animate', moveChar);
+                
                 gifDiv.append(p);
                 gifDiv.append(charImage);
-
-                
-                
+  
                 $(".gifsHere").prepend(gifDiv);
+                checkState();
               }
             });
           
@@ -72,5 +75,20 @@ $(document).ready(function() {
   });
   
     renderButtons();
+
+    });
+
+    function checkState(){
+        $('img').on('click', function(){
+      var state = $(this).attr('data-state'); 
+      if (state == 'still'){
+      $(this).attr('src', $(this).data('animate'));
+      $(this).attr('data-state', 'animate');
+      }else{
+      $(this).attr('src', $(this).data('still'));
+      $(this).attr('data-state', 'still');
+    }
+    
+        });
   
-  });
+    }
