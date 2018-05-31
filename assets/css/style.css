@@ -51,3 +51,29 @@
    margin-top:50px;
    margin-left: 30px;
 }
+
+@media only screen and (max-width: 900px) {
+
+   
+
+    .gifsHere {
+        grid-area: gifs;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+       
+    }
+}
+
+@media only screen and (max-width: 700px) {
+
+    .gifsHere {
+        grid-area: gifs;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+       
+    }
+}
